@@ -1,0 +1,56 @@
+
+<section ng-controller="ResumeCtrl as ResumeCtrl">
+	<section id="resume-form">
+		<form ng-submit="ResumeCtrl.ResuMake()">
+			<h3>Personal information</h3>
+			<p><span class='req-text'>Red</span> borders means, that the field is required.</p>
+			<p></p>
+			<input type="text" placeholder="First name..." ng-model="ResumeCtrl.newResume.firstName" required>
+			<input type="text" placeholder="Last name..." ng-model="ResumeCtrl.newResume.lastName" required>
+			<input type="text" placeholder="Birthday..." ng-model="ResumeCtrl.newResume.birthday" required>
+			<input type="email" placeholder="Email..." ng-model="ResumeCtrl.newResume.email">
+			<input type="tel" placeholder="Pnone number..." ng-model="ResumeCtrl.newResume.phoneNumber">
+			<input type="text" placeholder="Skills..." ng-model="ResumeCtrl.newResume.skills" required>
+			<p>Seperate skills with a comma - HTML,CSS,JS</p>
+			<br>
+			<h3>Education</h3>
+			<input type="text" placeholder="Start education..." ng-model="ResumeCtrl.newResume.education.edStart">
+			<input type="text" placeholder="End education..." ng-model="ResumeCtrl.newResume.education.edEnd">
+			<input type="text" placeholder="University..." ng-model="ResumeCtrl.newResume.education.edPlace">
+			<input type="text" placeholder="Department..." ng-model="ResumeCtrl.newResume.education.edDepartment">
+			<h3>Work experience</h3>
+			<input type="text" placeholder="Start working" ng-model="ResumeCtrl.newResume.workExp.expStart">
+			<input type="text" placeholder="End working..." ng-model="ResumeCtrl.newResume.workExp.expEnd">
+			<input type="text" placeholder="Position" ng-model="ResumeCtrl.newResume.workExp.position">
+			<input type="text" placeholder="Experience from job..." ng-model="ResumeCtrl.newResume.workExp.exps">
+			<h3>Summary</h3>
+			<textarea placeholder="Few words about yourself..." ng-model="ResumeCtrl.newResume.summary" required></textarea><br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</section>
+
+	<section id="resume-preview">
+		<h1>Preview</h1>
+		<h2>Personal information</h2>
+		<h3>{{ResumeCtrl.resume.firstName}} {{ResumeCtrl.resume.lastName}}</h3>
+		<p>{{ResumeCtrl.resume.birthday}}</p>
+		<p>{{ResumeCtrl.resume.email}} | {{ResumeCtrl.resume.phoneNumber}}</p>
+		<h2>Skills</h2>
+		<ul ng-repeat='skill in ResumeCtrl.resume.skills'>
+			<li>{{skill}}</li>
+		</ul>
+		<h2>Education</h2>
+		<p>{{ResumeCtrl.resume.education.edStart}} - {{ResumeCtrl.resume.education.edEnd}}</p>
+		<p>{{ResumeCtrl.resume.education.edPlace}}</p>
+		<p>{{ResumeCtrl.resume.education.edDepartment}}</p>
+		<h2>Work Experience</h2>
+		<p>{{ResumeCtrl.resume.workExp.expStart}} - {{ResumeCtrl.resume.workExp.expEnd}}</p>
+		<p>{{ResumeCtrl.resume.workExp.position}}</p>
+		<ul ng-repeat="exp in ResumeCtrl.resume.workExp.exps">
+			<li>{{exp}}</li>
+		</ul>
+		<h2>Summary</h2>
+		<p>{{ResumeCtrl.resume.summary}}</p>
+		<p><a class="btn btn-lg btn-success" ng-href="#/">Download PDF</span></a></p>
+	</section>
+</section>
